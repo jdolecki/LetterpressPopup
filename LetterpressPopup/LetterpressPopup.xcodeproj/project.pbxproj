@@ -88,13 +88,12 @@
 		8E3D1BA01714A63300D966C4 /* LetterpressPopup */ = {
 			isa = PBXGroup;
 			children = (
+				8EDBD5BF1714D1C800AF4311 /* LetterpressPopupExample */,
+				8E3D1BA11714A63300D966C4 /* Supporting Files */,
 				8E3D1BA91714A63300D966C4 /* AppDelegate.h */,
 				8E3D1BAA1714A63300D966C4 /* AppDelegate.m */,
-				8E3D1BA11714A63300D966C4 /* Supporting Files */,
 				8E3D1BB71714B71800D966C4 /* LetterpressPopup.h */,
 				8E3D1BB81714B71800D966C4 /* LetterpressPopup.m */,
-				8E3D1BBA1714B74300D966C4 /* LetterpressPopupExample.h */,
-				8E3D1BBB1714B74300D966C4 /* LetterpressPopupExample.m */,
 			);
 			path = LetterpressPopup;
 			sourceTree = "<group>";
@@ -111,6 +110,15 @@
 				8E3D1BB01714A63300D966C4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8EDBD5BF1714D1C800AF4311 /* LetterpressPopupExample */ = {
+			isa = PBXGroup;
+			children = (
+				8E3D1BBA1714B74300D966C4 /* LetterpressPopupExample.h */,
+				8E3D1BBB1714B74300D966C4 /* LetterpressPopupExample.m */,
+			);
+			name = LetterpressPopupExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +306,7 @@
 				8E3D1BB61714A63300D966C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
