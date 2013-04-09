@@ -1,5 +1,9 @@
 ### Letterpress-style popup
 
+It attempts to copy the rough appearance and behavior of this little bugger:
+
+!(Letterpress image)[http://i.imgur.com/Pbk42rO.png]
+
 You can use this popup to flash a message on the device. The popup just extends
 a UILabel, so you can modify most of the properties that a normal UILabel would
 have.
