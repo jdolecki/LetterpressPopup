@@ -47,7 +47,7 @@
     return self;
 }
 
-- (void)flashWithCallback:(void (^)(void))completionHandler {
+- (void)flash {
     CABasicAnimation *forwardAnimation =
         [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     CABasicAnimation *reverseAnimation =
@@ -69,15 +69,22 @@
     
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
     animationGroup.animations = @[forwardAnimation, reverseAnimation];
+    animationGroup.delegate = self;
     animationGroup.duration =
         forwardAnimation.duration + reverseAnimation.duration + self.waitBetweenAnimationsDuration;
     animationGroup.removedOnCompletion = NO;
     animationGroup.fillMode = kCAFillModeForwards;
     [UIView animateWithDuration:animationGroup.duration delay:0.0 options:0 animations:^{
         [self.layer addAnimation:animationGroup forKey:@"forwardAnimation"];
-    } completion:^(BOOL finished) {
-        if (completionHandler) completionHandler();
-    }];
+    } completion:^(BOOL finished) {}];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if (flag) {
+        if (self.onAnimationCompletion) {
+            self.onAnimationCompletion();
+        }
+    }
 }
 
 - (void)sizeToFit {

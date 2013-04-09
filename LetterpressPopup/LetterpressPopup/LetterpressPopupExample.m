@@ -28,17 +28,31 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIButton *flashPopupButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [flashPopupButton setFrame:CGRectMake(0.0, 0.0, 100.0, 50.0)];
+    [flashPopupButton setTitle:@"Flash!" forState:UIControlStateNormal];
+    [flashPopupButton addTarget:self action:@selector(flashPopup)
+               forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:flashPopupButton];
+}
+
+- (void)flashPopup {
+    LetterpressPopup *letterpressPopup = [[LetterpressPopup alloc] init];
+    letterpressPopup.text = @"This is a longer example!";
+    letterpressPopup.popupColor = [UIColor whiteColor];
+    [letterpressPopup sizeToFit];
+    letterpressPopup.center = self.view.center;
+    __weak LetterpressPopup *_letterpressPopup = letterpressPopup;
+    letterpressPopup.onAnimationCompletion = ^{
+        [_letterpressPopup removeFromSuperview];
+    };
+    [self.view addSubview:letterpressPopup];
+    [letterpressPopup flash];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    LetterpressPopup *letterpressPopup = [[LetterpressPopup alloc] init];
-    letterpressPopup.text = @"This is a longer example!";
-    letterpressPopup.center = self.view.center;
-    letterpressPopup.popupColor = [UIColor yellowColor];
-    [letterpressPopup sizeToFit];
-    [self.view addSubview:letterpressPopup];
-    [letterpressPopup flashWithCallback:nil];
+    [self flashPopup];
 }
 
 - (void)didReceiveMemoryWarning

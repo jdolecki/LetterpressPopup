@@ -11,7 +11,7 @@
 @interface LetterpressPopup : UILabel
 
 // Flash the popup
-- (void)flashWithCallback:(void (^)(void))completionHandler;
+- (void)flash;
 
 /* Color of the area that encloses text. BackgroundColor is clear to allow for
  a single view + shadow + cornerRadius.
@@ -32,5 +32,7 @@
  beings to wrap is the maxWidth inset by horizontal values of self.textInsets
  */
 @property (nonatomic) CGFloat maxWidth;
+
+@property (nonatomic, copy) void (^onAnimationCompletion)(void);
 
 @end
