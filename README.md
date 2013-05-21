@@ -1,6 +1,6 @@
 # LetterpressPopup
 
-LetterpressPopup is a UILabel subclass that imitates the style and appearance of the popups in [Letterpress](http://www.atebits.com/letterpress/).
+LetterpressPopup is a UILabel subclass that imitates the style and behavior of the popups in [Letterpress](http://www.atebits.com/letterpress/).
 
 ![LPPopup screenshot](https://raw.github.com/jessesquires/LetterpressPopup/master/Screenshots/screenshot.png)
 ![Letterpress image](http://i.imgur.com/Pbk42rO.png)
