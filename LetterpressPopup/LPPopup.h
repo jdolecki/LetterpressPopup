@@ -40,7 +40,6 @@ extern CGFloat const kLPPopupDefaultWaitDuration;
 
 #pragma mark - Initialization
 + (LPPopup *)popupWithText:(NSString *)txt;
-- (id)initWithText:(NSString *)txt;
 
 #pragma mark - Showing popup
 - (void)showInView:(UIView *)parentView
