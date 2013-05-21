@@ -165,6 +165,12 @@ static NSString * const kLPPopupAnimationKey = @"kLPPopupAnimationKey";
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.textInsets)];
 }
 
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    [self sizeToFit];
+}
+
 #pragma mark - Drawing
 - (void)drawRect:(CGRect)rect
 {
