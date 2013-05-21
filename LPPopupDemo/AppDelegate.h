@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  LetterpressPopup
+//  LPPopupDemo
 //
-//  Created by Jakub Dolecki on 4/9/13.
-//  Copyright (c) 2013 Jakub Dolecki. All rights reserved.
+//  Created by Jesse Squires on 5/20/13.
+//  Copyright (c) 2013 Hexed Bits. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

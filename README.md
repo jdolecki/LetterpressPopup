@@ -1,20 +1,51 @@
-### Letterpress-style popup
+# LetterpressPopup
 
-It attempts to copy the rough appearance and behavior of this little bugger:
+LetterpressPopup is a UILabel subclass that imitates the style and behavior of the popups in [Letterpress](http://www.atebits.com/letterpress/).
 
+![LPPopup screenshot](https://raw.github.com/jessesquires/LetterpressPopup/master/Screenshots/screenshot.png)
 ![Letterpress image](http://i.imgur.com/Pbk42rO.png)
 
-You can use this popup to flash a message on the device. The popup just extends
-a UILabel, so you can modify most of the properties that a normal UILabel would
-have.
+## Installation
 
-The way this is done is through a custom animation done with an animation group.
-The forward animation goes, there is a wait period when user can read what the
-popup says, and the reverse animation goes.
+* Drag the `LetterpressPopup/` folder to your project (make sure you copy all files/folders)
+* `#import "LPPopup.h"`
+* Add `QuartzCore.framework`
 
-I kind of hacked a solution to the problem of a single view having rounded
-corners and a shadow, but it works. I wanted a single view because I wanted this
-to just extend a UILabel and have all of the nice things that UILabel gives you.
+## How To Use
 
-I hacked this pretty quickly, so let me know what you think and how we can
-improve it!
+Initialize via either of the following:
+
+````objective-c
++ (LPPopup *)popupWithText:(NSString *)txt;
+
+- (id)initWithText:(NSString *)txt;
+````
+
+Configure any attributes of UILabel that you want.
+
+Use `UIAppearance` to set `popupColor`, like so:
+
+````objective-c
+[[LPPopup appearance] setPopupColor:/* a color */];
+````
+
+Show the popup:
+
+````objective-c
+- (void)showInView:(UIView *)parentView
+     centerAtPoint:(CGPoint)pos
+          duration:(CGFloat)waitDuration
+        completion:(void (^)(void))block
+````
+
+**See the included demo project `LPPopupDemo.xcodeproj`**
+
+## [MIT License](http://opensource.org/licenses/MIT)
+
+Copyright &copy; 2013 [Jakub Dolecki](https://github.com/jdolecki), [Jesse Squires](https://github.com/jessesquires)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
