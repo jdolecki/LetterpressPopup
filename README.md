@@ -13,23 +13,15 @@ LetterpressPopup is a UILabel subclass that imitates the style and behavior of t
 
 ## How To Use
 
-Initialize via either of the following:
+Initialize:
 
 ````objective-c
 + (LPPopup *)popupWithText:(NSString *)txt;
-
-- (id)initWithText:(NSString *)txt;
 ````
 
-Configure any attributes of UILabel that you want.
+Configure any attributes of `UILabel` that you want.
 
-Use `UIAppearance` to set `popupColor`, like so:
-
-````objective-c
-[[LPPopup appearance] setPopupColor:/* a color */];
-````
-
-Show the popup:
+Show:
 
 ````objective-c
 - (void)showInView:(UIView *)parentView
@@ -38,7 +30,19 @@ Show the popup:
         completion:(void (^)(void))block
 ````
 
+Use `UIAppearance` to set `popupColor`:
+
+````objective-c
+[[LPPopup appearance] setPopupColor:/* a color */];
+````
+
 **See the included demo project `LPPopupDemo.xcodeproj`**
+
+## Requirements
+
+* ARC
+* iOS 5.0+
+* `QuartzCore.framework`
 
 ## [MIT License](http://opensource.org/licenses/MIT)
 
