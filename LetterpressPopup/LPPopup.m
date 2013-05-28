@@ -29,10 +29,13 @@
 
 CGFloat const kLPPopupDefaultWaitDuration = 1.0f;
 
-static NSString * const kLPAnimationKeyPopup = @"kLPAnimationKeyPopup";
+static NSString * const kLPPopupAnimationKey = @"kLPPopupAnimationKey";
 
 @interface LPPopup ()
+
+- (id)initWithText:(NSString *)txt;
 @property (copy, nonatomic) void (^animationCompletion)(void);
+
 @end
 
 
@@ -80,6 +83,11 @@ static NSString * const kLPAnimationKeyPopup = @"kLPAnimationKeyPopup";
     return self;
 }
 
+- (void)dealloc
+{
+    self.popupColor = nil;
+}
+
 #pragma mark - Showing popup
 - (void)showInView:(UIView *)parentView
      centerAtPoint:(CGPoint)pos
@@ -115,7 +123,7 @@ static NSString * const kLPAnimationKeyPopup = @"kLPAnimationKeyPopup";
                         options:0
                      animations:^{
                          [self.layer addAnimation:animationGroup
-                                           forKey:kLPAnimationKeyPopup];
+                                           forKey:kLPPopupAnimationKey];
                      }
                      completion:^(BOOL finished) {
                      }];
@@ -155,6 +163,12 @@ static NSString * const kLPAnimationKeyPopup = @"kLPAnimationKeyPopup";
 - (void)drawTextInRect:(CGRect)rect
 {
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.textInsets)];
+}
+
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    [self sizeToFit];
 }
 
 #pragma mark - Drawing

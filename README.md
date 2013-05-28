@@ -13,23 +13,15 @@ LetterpressPopup is a UILabel subclass that imitates the style and behavior of t
 
 ## How To Use
 
-Initialize via either of the following:
+Initialize:
 
 ````objective-c
 + (LPPopup *)popupWithText:(NSString *)txt;
-
-- (id)initWithText:(NSString *)txt;
 ````
 
-Configure any attributes of UILabel that you want.
+Configure any attributes of [UILabel][ref1] that you want.
 
-Use `UIAppearance` to set `popupColor`, like so:
-
-````objective-c
-[[LPPopup appearance] setPopupColor:/* a color */];
-````
-
-Show the popup:
+Show:
 
 ````objective-c
 - (void)showInView:(UIView *)parentView
@@ -38,7 +30,19 @@ Show the popup:
         completion:(void (^)(void))block
 ````
 
+Use `UIAppearance` to set `popupColor`:
+
+````objective-c
+[[LPPopup appearance] setPopupColor:/* a color */];
+````
+
 **See the included demo project `LPPopupDemo.xcodeproj`**
+
+## Requirements
+
+* ARC
+* iOS 5.0+
+* `QuartzCore.framework`
 
 ## [MIT License](http://opensource.org/licenses/MIT)
 
@@ -49,3 +53,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[ref1]:http://developer.apple.com/library/ios/#documentation/uikit/reference/UILabel_Class/Reference/UILabel.html
